@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("enter the length of an array:");
+        int len= input.nextInt();
+        int array[]=new int[len];
+        System.out.println("enter the elements of an array ");
+        for(int i=0; i<len; i++){
+            array[i]=input.nextInt();
+        }
+        int weight[]=new int[len];
+        for(int i=0; i<len; i++){
+            int ans=0;
+            float f=(float)Math.sqrt(array[i]);
+            if(f==(int)f){
+                ans+=5;
+            }
+            if(array[i]*4%6==0){
+                ans+=4;
+            }
+            if(array[i]%2==0){
+                ans+=3;
+            }
+            weight[i]=ans;
+        }
+        int temp;
+        for(int i=0; i<len; i++){
+            for(int j=i+1; j<len; j++){
+                if(weight[i]<weight[j]){
+                    temp=weight[i];
+                    weight[i]=weight[j];
+                    weight[j]=temp;
+                    temp=array[i];
+                    array[i]=array[j];
+                    array[j]=temp;
+                }
+            }
+        }
+        for(int i=0; i< array.length; i++){
+            System.out.print("< "+array[i]+" "+weight[i]+" >  ");
+        }
+    }
+}

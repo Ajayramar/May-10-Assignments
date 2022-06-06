@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("enter the length of an array:");
+        int len= input.nextInt();
+        int array[]=new int[len];
+        System.out.println("enter the elements of an array ");
+        for(int i=0; i<len; i++){
+            array[i]=input.nextInt();
+        }
+        Arrays.sort(array);
+        int des[],asc[];
+        if(array.length%2!=0){
+            des=new int[(int)Math.ceil(array.length/2)];
+            asc=new int[array.length-des.length];
+        }else{
+            des=new int[array.length/2];
+            asc=new int[array.length/2];
+        }
+        int k=array.length-1;
+        for(int i=0;i<des.length; i++){
+            des[i]=array[k--];
+        }k=0;
+        for(int i=0;i< asc.length; i++){
+            asc[i]=array[k++];
+        }
+        k= asc.length-1;
+        int l= des.length-1;
+        for(int i=0; i< array.length; i++){
+            if(i%2==0){
+                array[i]=asc[k--];
+            }else{
+                array[i]=des[l--];
+            }
+        }
+        System.out.println(Arrays.toString(array));
+    }
+}

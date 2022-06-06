@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("enter the string :");
+        String given=input.next();
+        if(given.length()%2!=0){
+            for(int i=0; i<given.length(); i++){
+                for(int j=0; j<given.length(); j++){
+                    if(i==j || i+j==given.length()-1){
+                        System.out.print(given.charAt(j)+" ");
+                    }else{
+                        System.out.print("  ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+}

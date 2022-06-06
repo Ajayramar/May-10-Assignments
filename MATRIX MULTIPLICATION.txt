@@ -1,0 +1,38 @@
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("enter the row of an first array:");
+        int firstRow= input.nextInt();
+        System.out.print("enter the col of an first array:");
+        int firstCol=input.nextInt();
+        int firstArray[][]=new int[firstRow][firstCol];
+        System.out.println("enter the elements of an array ");
+        for(int i=0; i<firstRow; i++){
+            for(int j=0; j<firstCol; j++){
+                firstArray[i][j]=input.nextInt();
+            }
+        }
+        System.out.print("enter the row of an second array:");
+        int secondRow= input.nextInt();
+        System.out.print("enter the col of an second array:");
+        int secondCol=input.nextInt();
+        int secondArray[][]=new int[secondRow][secondCol];
+        System.out.println("enter the elements of an array ");
+        for(int i=0; i<secondRow; i++){
+            for(int j=0; j<secondCol; j++){
+                secondArray[i][j]=input.nextInt();
+            }
+        }
+        int resultArr[][]=new int[firstArray.length][secondArray[0].length];
+        for(int i=0; i< firstArray.length; i++){
+            for(int j=0; j< secondArray[0].length; j++){
+                int temp=0;
+                for(int k=0; k<firstArray[0].length; k++){
+                    temp+=firstArray[i][k]*secondArray[k][j];
+                }
+                resultArr[i][j]=temp;
+            }
+        }
+        System.out.println(Arrays.deepToString(resultArr));
+    }
+}

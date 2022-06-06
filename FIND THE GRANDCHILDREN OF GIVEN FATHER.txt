@@ -1,0 +1,38 @@
+FIND THE GRAND CHILDREN OF THE GIVEN FATHER:
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("enter the row an array :");
+        int row=input.nextInt();
+        System.out.print("enter the col an array :");
+        int col=input.nextInt();
+        String family[][]=new String[row][col];
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                family[i][j]=input.next();
+            }
+        }
+        System.out.print("enter the name of grandfather :");
+        String grandFather=input.next();
+        String childOfGrandFather ="";
+        int i=0;
+        for(i=0; i<family.length; i++){
+            if(grandFather.equals(family[i][1])){
+                childOfGrandFather=family[i][0];
+            }
+        }
+        i=0;
+        int grandChildrenCount=0;
+        for(i=0; i< family.length; i++){
+            if(family[i][1].equals(childOfGrandFather)){
+                grandChildrenCount++;
+            }
+        }
+        System.out.println("grand children of "+grandFather+" = "+grandChildrenCount);
+    }
+}
+----------------------------------------------------------------------------------------
+
